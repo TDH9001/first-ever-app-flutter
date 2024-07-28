@@ -103,13 +103,8 @@ class FormApp extends ConsumerWidget {
                     child: const Text("Forgot Password?")),
                 TextButton(
                     onPressed: () {}, child: const Text("become a Summoner!")),
-                TextButton(
-                  child: Text("sfsfsfsf"),
-                  onPressed: () {},
-                )
               ],
             ),
-            CircleAvatar()
           ],
         ),
         appBar: AppBar(
