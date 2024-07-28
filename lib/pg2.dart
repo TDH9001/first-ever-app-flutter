@@ -12,7 +12,6 @@ class Pg2 extends StatefulWidget {
 }
 
 List<String> region = [
-  "images/bc.png",
   "images/dm.png",
   "images/fy.png",
   "images/io.png",
@@ -21,7 +20,20 @@ List<String> region = [
   "images/pz.png",
   "images/shur.png",
   "images/si.png",
-  "images/tg.png"
+  "images/tg.png",
+  "images/bc.png"
+];
+List<String> champ = [
+  "champs/garen.png",
+  "champs/voli.png",
+  "champs/yasuo.png",
+  "champs/darius.png",
+  "champs/pyke.png",
+  "champs/zeri.png",
+  "champs/azir.png",
+  "champs/viego.png",
+  "champs/aphilios.png",
+  "champs/ziggs.png"
 ];
 
 class _MyWidgetState extends State<Pg2> {
@@ -29,8 +41,11 @@ class _MyWidgetState extends State<Pg2> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color.fromARGB(255, 18, 28, 35),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             color: const Color.fromARGB(255, 18, 28, 35),
@@ -41,7 +56,7 @@ class _MyWidgetState extends State<Pg2> {
               style: TextStyle(
                   fontSize: 25,
                   backgroundColor: Color.fromARGB(255, 18, 28, 35),
-                  color: Colors.white),
+                  color: Color.fromARGB(255, 102, 237, 199)),
             ),
           ),
           Container(
@@ -63,31 +78,47 @@ class _MyWidgetState extends State<Pg2> {
                 }),
           ),
           Container(
-            height: 630,
+            color: const Color.fromARGB(255, 18, 28, 35),
+            width: 400,
+            alignment: Alignment.center,
+            child: const Text(
+              "Chose your champion Summoner",
+              style: TextStyle(
+                  fontSize: 25,
+                  backgroundColor: Color.fromARGB(255, 18, 28, 35),
+                  color: Color.fromARGB(255, 102, 237, 199)),
+            ),
+          ),
+          Container(
+            height: 510,
             color: const Color.fromARGB(255, 18, 28, 35),
             child: GridView.builder(
                 itemCount: region.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (context, i) {
-                  return Container(
-                    height: 50,
-                    width: 40,
-                    // alignment: Alignment.center,
-                    child: CircleAvatar(
-                      foregroundImage: AssetImage(region[i]),
-                      radius: 52,
-                      backgroundColor: const Color.fromARGB(255, 18, 28, 35),
-                      // foregroundColor: Color.fromARGB(255, 18, 28, 35),
-                    ),
+                  return Image(
+                    image: AssetImage(champ[i]),
                   );
                 }),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 32, 88, 108),
+                foregroundColor: const Color.fromARGB(255, 159, 210, 196)),
+            child: const Text("Find a Match"),
           )
         ],
       ),
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 18, 28, 35),
-        title: Text("welcome ${widget.email} "),
+        title: Text(
+          "welcome ${widget.email} ",
+          style:
+              const TextStyle(color: const Color.fromARGB(255, 159, 210, 196)),
+        ),
       ),
     ));
   }

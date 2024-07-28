@@ -80,6 +80,16 @@ flutter:
    - images/shur.png
    - images/si.png
    - images/tg.png
+   - champs/garen.png
+   - champs/voli.png
+   - champs/yasuo.png
+   - champs/darius.png
+   - champs/pyke.png
+   - champs/zeri.png
+   - champs/azir.png
+   - champs/viego.png
+   - champs/aphilios.png
+   - champs/ziggs.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
