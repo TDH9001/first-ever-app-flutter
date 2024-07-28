@@ -70,6 +70,16 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
    - images/sr1.jpg
+   - images/bc.png
+   - images/dm.png
+   - images/fy.png
+   - images/io.png
+   - images/nx.png
+   - images/pw.png
+   - images/pz.png
+   - images/shur.png
+   - images/si.png
+   - images/tg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

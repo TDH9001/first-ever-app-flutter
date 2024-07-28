@@ -20,6 +20,8 @@ const bool _isVis = true;
 final eyeProvider = Provider((ref) {
   return _isVis;
 });
+var emailText = TextEditingController();
+var pass = TextEditingController();
 
 class FormApp extends ConsumerWidget {
   @override
@@ -41,6 +43,7 @@ class FormApp extends ConsumerWidget {
             Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: emailText,
                   decoration: const InputDecoration(
                       hintText: "Enter your summoner adress",
                       labelText: "Summoner adress",
@@ -50,6 +53,8 @@ class FormApp extends ConsumerWidget {
             Padding(
                 padding: const EdgeInsets.all(6.0),
                 child: TextFormField(
+                  //email
+                  controller: pass,
                   decoration: InputDecoration(
                       hintText: "Enter your password",
                       labelText: "Summoner password",
@@ -71,17 +76,19 @@ class FormApp extends ConsumerWidget {
             Builder(builder: (context) {
               return ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>MY2("KILL EM PLEASEEEEEEEEEEEE") ));
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            const Pg2(data: "demaciaaaaaaaaaa")),
+                        builder: (context) => Pg2(
+                              email: emailText.text,
+                              pass: pass.text,
+                            )),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,
-                    foregroundColor: Colors.black87),
+                  backgroundColor: Colors.grey,
+                  foregroundColor: Colors.black87,
+                ),
                 child: const Text("Jump Into Action Summoner"),
               );
             }),
@@ -102,6 +109,7 @@ class FormApp extends ConsumerWidget {
                 )
               ],
             ),
+            CircleAvatar()
           ],
         ),
         appBar: AppBar(
