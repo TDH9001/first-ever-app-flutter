@@ -3,15 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import "pg2.dart";
 
 bool _isObsec = true;
 void main() {
-  runApp(FormApp());
+  runApp(ProviderScope(child: FormApp()));
 }
 
-class FormApp extends StatelessWidget {
+// link for youtube video that this idea for sttateamngement came from
+// https://www.youtube.com/watch?v=vU9xDLdEZtU
+// youtube playlist where i learned these : https://www.youtube.com/playlist?list=PL4cUxeGkcC9i88WGZ9eIfQUWRgPstLFLp
+
+//makign a provider
+const bool _isVis = true;
+final eyeProvider = Provider((ref) {
+  return _isVis;
+});
+
+class FormApp extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final eyeState = ref.watch(eyeProvider);
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
@@ -51,17 +64,27 @@ class FormApp extends StatelessWidget {
                       ),
                       border: const OutlineInputBorder(),
                       icon: const Icon(Icons.lock_sharp)),
-                  obscureText: _isObsec,
+                  obscureText: eyeState,
                   obscuringCharacter: "*",
                   textAlignVertical: TextAlignVertical.center,
                 )),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey,
-                  foregroundColor: Colors.black87),
-              child: const Text("Jump Into Action Summoner"),
-            ),
+            Builder(builder: (context) {
+              return ElevatedButton(
+                onPressed: () {
+                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>MY2("KILL EM PLEASEEEEEEEEEEEE") ));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const Pg2(data: "demaciaaaaaaaaaa")),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey,
+                    foregroundColor: Colors.black87),
+                child: const Text("Jump Into Action Summoner"),
+              );
+            }),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
