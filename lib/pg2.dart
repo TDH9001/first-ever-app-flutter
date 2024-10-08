@@ -21,7 +21,7 @@ List<String> region = [
   "images/shur.png",
   "images/si.png",
   "images/tg.png",
-  "images/bc.png"
+  "images/bc.png",
 ];
 List<String> champ = [
   "champs/garen.png",
@@ -41,7 +41,7 @@ class _MyWidgetState extends State<Pg2> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false ,
       backgroundColor: const Color.fromARGB(255, 18, 28, 35),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

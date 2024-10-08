@@ -35,7 +35,7 @@ class FormApp extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Image(
+            const Image(,
               image: AssetImage(
                 'images/sr1.jpg',
               ),
