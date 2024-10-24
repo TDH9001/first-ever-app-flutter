@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Pg2 extends StatefulWidget {
-  late String email;
-  late String pass;
-
-  Pg2({super.key, required this.email, required this.pass});
+  Pg2({
+    super.key,
+  });
 
   @override
   State<Pg2> createState() => _MyWidgetState();
@@ -41,7 +40,7 @@ class _MyWidgetState extends State<Pg2> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      resizeToAvoidBottomInset: false ,
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromARGB(255, 18, 28, 35),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -114,10 +113,10 @@ class _MyWidgetState extends State<Pg2> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 18, 28, 35),
-        title: Text(
-          "welcome ${widget.email} ",
+        title: const Text(
+          "welcome",
           style:
-              const TextStyle(color: const Color.fromARGB(255, 159, 210, 196)),
+               TextStyle(color:  Color.fromARGB(255, 159, 210, 196)),
         ),
       ),
     ));

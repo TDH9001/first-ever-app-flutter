@@ -4,55 +4,42 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:welcome_to_summoners_rift/screens/loginPage.dart';
+import 'package:welcome_to_summoners_rift/screens/registerPage.dart';
 import 'package:welcome_to_summoners_rift/widgets/loginfield.dart';
 import 'package:welcome_to_summoners_rift/widgets/navigatorButton.dart';
 import 'package:welcome_to_summoners_rift/widgets/passwordField.dart';
 import "pg2.dart";
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(ProviderScope(child: FormApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(ProviderScope(child: chatApp()));
 }
 
 var emailText = TextEditingController();
 var pass = TextEditingController();
 
-class FormApp extends ConsumerWidget {
+class chatApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.grey,
-          title: const Text("welcome summoner"),
-          centerTitle: true,
-        ),
-        backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: false,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Image(
-              image: AssetImage(
-                'images/sr1.jpg',
-              ),
-            ),
-            loginField(),
-            passwordField(),
-            navigatorButton(), // needs fixing > still nto fixed BTW
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextButton(
-                    onPressed: () {}, child: const Text("Forgot Password?")),
-                TextButton(
-                    onPressed: () {}, child: const Text("become a Summoner!")),
-              ],
-            ),
-          ],
-        ),
-      ),
+      routes: {
+        "pg2": (context) => Pg2(),
+        "loginPage": (context) =>
+            loginPage(s: "this is the main page brothers"),
+        "registerPage": (context) => Registerpage(),
+      },
+      // onGenerateRoute: (settings) {
+      //   if (settings.name == "registerPage") {
+      //     final args = settings.arguments as String;
+      //   }
+      // },
+      initialRoute: "loginPage",
     );
   }
 }

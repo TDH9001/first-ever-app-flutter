@@ -4,23 +4,14 @@ import 'package:welcome_to_summoners_rift/main.dart';
 import 'package:welcome_to_summoners_rift/pg2.dart';
 
 class navigatorButton extends StatelessWidget {
-  const navigatorButton({
-    super.key,
-  });
-
+  const navigatorButton(String s, {super.key, required this.path});
+  final String path;
   @override
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       return ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Pg2(
-                      email: emailText.text,
-                      pass: pass.text,
-                    )),
-          );
+          Navigator.pushNamed(context, path);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.grey,
