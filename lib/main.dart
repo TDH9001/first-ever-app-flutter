@@ -12,6 +12,7 @@ import 'package:welcome_to_summoners_rift/widgets/passwordField.dart';
 import "pg2.dart";
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +22,8 @@ void main() async {
   runApp(ProviderScope(child: chatApp()));
 }
 
-var emailText = TextEditingController();
-var pass = TextEditingController();
+// var emailText = TextEditingController();
+// var pass = TextEditingController();
 
 class chatApp extends ConsumerWidget {
   @override

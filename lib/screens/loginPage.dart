@@ -11,6 +11,8 @@ import '../widgets/passwordField.dart';
 class loginPage extends StatelessWidget {
   loginPage({super.key, required this.s});
   String s;
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +33,16 @@ class loginPage extends StatelessWidget {
           loginField(
             hint: "enter your email adress ",
             label: "email adress",
+            txt: email,
           ),
           Passwordfield(
             hint: "enter the target password",
             label: "password ",
+            txt: pass,
+          ),
+          navigatorButton(
+            path: Registerpage.id,
+            value: "become a summoner",
           ),
           // navigatorButton(path: "pg2"), // needs fixing > still nto fixed BTW
           Row(
